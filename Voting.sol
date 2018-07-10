@@ -37,6 +37,13 @@ contract Voting {
     owner = msg.sender;
   }
 
+  // Add new candidate
+  function addCandidate(bytes32 candidate) public {
+    // make sure candiate is not added yet
+    assert(validCandidate(candidate) == false);
+    candidateList.push(candidate);
+  }
+
   // This function returns the total votes a candidate has received so far
   function totalVotesFor(bytes32 candidate) public returns (uint8) {
     assert(validCandidate(candidate) == true);
