@@ -5,7 +5,7 @@
 - [x] Step 2: Build and Deploy the Contract
 - [x] Step 3: Add in voting logic
 - [x] Step 4: Create a frontend
-- [ ] Bonus 1: Dynamic Candidates
+- [x] Bonus 1: Dynamic Candidates
 - [ ] Bonus 2: Vote with Your Wallet
 
 ------------------------------
