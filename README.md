@@ -6,7 +6,7 @@
 - [x] Step 3: Add in voting logic
 - [x] Step 4: Create a frontend
 - [x] Bonus 1: Dynamic Candidates
-- [ ] Bonus 2: Vote with Your Wallet
+- [x] Bonus 2: Vote with Your Wallet
 
 ------------------------------
 
@@ -78,3 +78,9 @@ compiledCode.contracts[':Voting'].interface
 
 contractInstance.address
 ```
+
+------------------------------
+
+### Vote with Your Wallet
+
+![Vote with Your Wallet](./paymoney.gif)

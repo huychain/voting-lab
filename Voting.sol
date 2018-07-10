@@ -8,7 +8,7 @@ contract Voting {
   The key of the mapping is candidate name stored as type bytes32 and value is
   an unsigned integer to store the vote count
   */
-  mapping (bytes32 => uint8) public votesReceived;
+  mapping (bytes32 => uint) public votesReceived;
 
   /* Solidity doesn't let you pass in an array of strings in the constructor (yet).
   We will use an array of bytes32 instead to store the list of candidates
@@ -32,7 +32,7 @@ contract Voting {
   deploy the contract to the blockchain. When we deploy the contract,
   we will pass an array of candidates who will be contesting in the election
   */
-  function Voting(bytes32[] candidateNames) public {
+  constructor(bytes32[] candidateNames) public {
     candidateList = candidateNames;
     owner = msg.sender;
   }
@@ -45,16 +45,16 @@ contract Voting {
   }
 
   // This function returns the total votes a candidate has received so far
-  function totalVotesFor(bytes32 candidate) public returns (uint8) {
+  function totalVotesFor(bytes32 candidate) public returns (uint) {
     assert(validCandidate(candidate) == true);
     return votesReceived[candidate];
   }
 
   // This function increments the vote count for the specified candidate. This
   // is equivalent to casting a vote
-  function voteForCandidate(bytes32 candidate) public {
+  function voteForCandidate(bytes32 candidate) public payable {
     assert(validCandidate(candidate) == true);
-    votesReceived[candidate] += 1;
+    votesReceived[candidate] += msg.value;
   }
 
   function kill() public onlyOwner {
